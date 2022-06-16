@@ -22,9 +22,6 @@ class PostDetail(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-        if post.comments.filter(id=self.request.user.id).exists():
-            messages.add_message(request, messages.SUCCESS, 'Thank you for the comment')
-
 
         return render(
             request,
